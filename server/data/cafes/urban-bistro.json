@@ -1,0 +1,166 @@
+{
+  "config": {
+    "id": "urban-bistro",
+    "name": "Urban Bistro & Pizzeria",
+    "tagline": "Artisan Wood-Fired Pizza & Handmade Pasta",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Shop 4, Indiranagar 100ft Road, Bangalore",
+    "phone": "+91 98450 12345",
+    "wifiName": "urban-bistro_GuestWifi",
+    "wifiPassword": "guestwelcome",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Bistro 1",
+      "Bistro 2",
+      "Bistro 3",
+      "Terrace 1",
+      "Terrace 2",
+      "Bar Counter"
+    ],
+    "logoUrl": "🍕"
+  },
+  "menu": [
+    {
+      "id": "ub-item-1",
+      "name": "Margherita Burrata Pizza",
+      "category": "Wood-Fired Pizza",
+      "price": 380,
+      "description": "San Marzano tomato sauce, fresh artisan burrata, extra virgin olive oil, and sweet Italian basil on slow-fermented dough.",
+      "image": "https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 12,
+      "calories": 680
+    },
+    {
+      "id": "ub-item-2",
+      "name": "Quattro Formaggi Truffle Pizza",
+      "category": "Wood-Fired Pizza",
+      "price": 460,
+      "description": "Four-cheese blend of fresh mozzarella, aged parmesan, gorgonzola, and ricotta drizzled with Umbrian black truffle honey.",
+      "image": "https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 14,
+      "calories": 750
+    },
+    {
+      "id": "ub-item-3",
+      "name": "Pesto Genovese Sun-Dried Tomato Pizza",
+      "category": "Wood-Fired Pizza",
+      "price": 420,
+      "description": "House-made pine nut basil pesto, buffalo mozzarella, sun-dried tomatoes, roasted pine nuts, and baby arugula.",
+      "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 12,
+      "calories": 690
+    },
+    {
+      "id": "ub-item-4",
+      "name": "Truffle Mushroom Fettuccine",
+      "category": "Handmade Pasta",
+      "price": 340,
+      "description": "Fresh eggless pasta ribbons tossed with wild forest mushrooms, black truffle butter, and 24-month aged parmesan.",
+      "image": "https://images.unsplash.com/photo-1621996346565-e3d5d6281691?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 10,
+      "calories": 520
+    },
+    {
+      "id": "ub-item-5",
+      "name": "Classic Penne All'Arrabbiata",
+      "category": "Handmade Pasta",
+      "price": 290,
+      "description": "Al dente penne in fiery garlic, Calabrian chili, and crushed San Marzano plum tomatoes garnished with Italian parsley.",
+      "image": "https://images.unsplash.com/photo-1608897013039-887f21d8c804?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 9,
+      "calories": 430
+    },
+    {
+      "id": "ub-item-6",
+      "name": "Artisan Truffle Garlic Focaccia",
+      "category": "Antipasti & Starters",
+      "price": 180,
+      "description": "Freshly baked rosemary focaccia loaded with roasted garlic confit, truffle butter, and melted provolone.",
+      "image": "https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 310
+    },
+    {
+      "id": "ub-item-7",
+      "name": "Caprese Salad with Fresh Burrata",
+      "category": "Antipasti & Starters",
+      "price": 260,
+      "description": "Heirloom ripe tomatoes, creamy artisanal burrata ball, aged Modena balsamic glaze, and extra virgin olive oil.",
+      "image": "https://images.unsplash.com/photo-1592417817098-8f3d6910985b?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 280
+    },
+    {
+      "id": "ub-item-8",
+      "name": "Double Espresso Romano",
+      "category": "Specialty Coffee & Dolci",
+      "price": 140,
+      "description": "Rich dark crema espresso pulled over a fresh twist of Sicilian lemon peel for intense citrus aroma.",
+      "image": "https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 10
+    },
+    {
+      "id": "ub-item-9",
+      "name": "Traditional Venetian Tiramisu",
+      "category": "Specialty Coffee & Dolci",
+      "price": 240,
+      "description": "Espresso-soaked ladyfinger biscuits layered with whipped mascarpone cream and dusted with Valrhona cocoa.",
+      "image": "https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 380
+    }
+  ],
+  "orders": [
+    {
+      "tableNumber": "Bistro 2",
+      "items": [
+        {
+          "name": "Margherita Burrata Pizza",
+          "quantity": 1,
+          "unitPrice": 380
+        }
+      ],
+      "totalAmount": 399,
+      "id": "ord-1789577334278",
+      "orderNumber": 301,
+      "createdAt": "2026-09-16T16:48:54.278Z",
+      "updatedAt": "2026-09-16T16:48:54.278Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

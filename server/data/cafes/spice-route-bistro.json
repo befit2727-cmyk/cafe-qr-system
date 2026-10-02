@@ -1,0 +1,162 @@
+{
+  "config": {
+    "id": "spice-route-bistro",
+    "name": "Spice Route Dim Sum & Boba House",
+    "tagline": "Crystal Dim Sum, Fluffy Baos & Brown Sugar Boba",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Road No. 36, Jubilee Hills, Hyderabad",
+    "phone": "+91 98490 66778",
+    "wifiName": "spiceroutebistro_Guest",
+    "wifiPassword": "welcomeguest",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Lounge 1",
+      "Lounge 2",
+      "Table 1",
+      "Table 2",
+      "Garden 1"
+    ],
+    "logoUrl": "🥟"
+  },
+  "menu": [
+    {
+      "id": "srb-item-1",
+      "name": "Edamame Truffle Crystal Dim Sum",
+      "category": "Artisan Dim Sum",
+      "price": 320,
+      "description": "Translucent steamed dumplings stuffed with mashed Japanese edamame beans and aromatic white truffle oil.",
+      "image": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 190
+    },
+    {
+      "id": "srb-item-2",
+      "name": "Sichuan Spiced Veg Dumplings",
+      "category": "Artisan Dim Sum",
+      "price": 280,
+      "description": "Steamed parcels packed with crunchy water chestnuts, shiitake mushrooms, and spicy Sichuan chili dip.",
+      "image": "https://images.unsplash.com/photo-1496116218417-1a781b1c416c?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 7,
+      "calories": 210
+    },
+    {
+      "id": "srb-item-3",
+      "name": "Crystal Shiitake Mushroom Har Gow",
+      "category": "Artisan Dim Sum",
+      "price": 310,
+      "description": "Thin pleated wheat starch wrappers filled with marinated wood ear and shiitake mushrooms with toasted sesame oil.",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 180
+    },
+    {
+      "id": "srb-item-4",
+      "name": "Crispy Glazed Tofu Teriyaki Bao",
+      "category": "Steamed Baos & Wontons",
+      "price": 240,
+      "description": "Two fluffy lotus leaf steamed buns stuffed with panko-crusted organic tofu, teriyaki glaze, pickled cucumber, and scallions.",
+      "image": "https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 320
+    },
+    {
+      "id": "srb-item-5",
+      "name": "Fiery Sichuan Chili Oil Wontons",
+      "category": "Steamed Baos & Wontons",
+      "price": 260,
+      "description": "Silky vegetable wontons submerged in a house-brewed chili crisp oil, black vinegar, and toasted peanuts.",
+      "image": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 270
+    },
+    {
+      "id": "srb-item-6",
+      "name": "Tiger Brown Sugar Fresh Milk Boba",
+      "category": "Signature Boba Tea",
+      "price": 220,
+      "description": "Chewy warm Taiwan tapioca pearls flamed in muscovado brown sugar syrup with chilled organic milk.",
+      "image": "https://images.unsplash.com/photo-1558857563-b37fe435e003?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 330
+    },
+    {
+      "id": "srb-item-7",
+      "name": "Kyoto Ceremonial Matcha Creme Boba",
+      "category": "Signature Boba Tea",
+      "price": 240,
+      "description": "Shade-grown authentic Japanese Uji matcha whisked fresh, poured over brown sugar pearls and sea-salt cream cheese foam.",
+      "image": "https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 290
+    },
+    {
+      "id": "srb-item-8",
+      "name": "Taro Coconut Cream Boba",
+      "category": "Signature Boba Tea",
+      "price": 230,
+      "description": "Velvety purple taro root puree blended with coconut milk, grass jelly, and brown sugar boba pearls.",
+      "image": "https://images.unsplash.com/photo-1558857563-b37fe435e003?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 310
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-spice-route-bistro-1",
+      "orderNumber": 301,
+      "tableNumber": "Lounge 1",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "spice-route-bistro-item-1",
+          "name": "Edamame Truffle Crystal Dim Sum",
+          "image": "https://images.unsplash.com/photo-1541696432-82c6da8ce7bf?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 320
+        }
+      ],
+      "subtotal": 640,
+      "cgstAmount": 16,
+      "sgstAmount": 16,
+      "taxAmount": 32,
+      "totalAmount": 672,
+      "status": "preparing",
+      "paymentStatus": "pending",
+      "customerName": "Rahul Verma",
+      "createdAt": "2026-09-16T16:29:47.597Z",
+      "updatedAt": "2026-09-16T16:33:47.597Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

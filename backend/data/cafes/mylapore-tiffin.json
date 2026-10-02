@@ -1,0 +1,180 @@
+{
+  "config": {
+    "id": "mylapore-tiffin",
+    "name": "Mylapore Tiffin & Filter Kaapi",
+    "tagline": "Pure Ghee Podi Roast, Steamed Idlis & Kaapi",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "North Mada Street, Near Kapaleeshwarar Temple, Chennai",
+    "phone": "+91 98400 33221",
+    "wifiName": "mylaporetiffin_Guest",
+    "wifiPassword": "welcomeguest",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Family 1",
+      "Family 2"
+    ],
+    "logoUrl": "🥥"
+  },
+  "menu": [
+    {
+      "id": "mt-item-1",
+      "name": "Ghee Podi Crispy Roast Dosa",
+      "category": "Traditional Dosas",
+      "price": 130,
+      "description": "Golden paper-thin dosa smeared with fragrant Gunpowder podi masala and melted pure cow ghee, served with coconut chutney and sambar.",
+      "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 340
+    },
+    {
+      "id": "mt-item-2",
+      "name": "Mysuru Ghee Masala Dosa",
+      "category": "Traditional Dosas",
+      "price": 140,
+      "description": "Crisp dosa lined with spicy red chili garlic chutney and stuffed with spiced potato masala and melted ghee.",
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 380
+    },
+    {
+      "id": "mt-item-3",
+      "name": "Rava Onion Ghee Roast",
+      "category": "Traditional Dosas",
+      "price": 150,
+      "description": "Lacy, crackling semolina crepe studded with chopped green chilies, ginger, cracked black pepper, and golden onions.",
+      "image": "https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 360
+    },
+    {
+      "id": "mt-item-4",
+      "name": "Melt-in-Mouth Ghee Button Idlis",
+      "category": "Steamed Tiffin",
+      "price": 100,
+      "description": "14 mini button idlis swimming in piping hot aromatic Madras drumstick sambar with generous pure ghee drizzle.",
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 220
+    },
+    {
+      "id": "mt-item-5",
+      "name": "Thatte Idli with Podi & Pure Cow Ghee",
+      "category": "Steamed Tiffin",
+      "price": 90,
+      "description": "Giant plate-sized soft steamed Karnataka style rice cake topped with spicy idli karam podi and hot ghee.",
+      "image": "https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 240
+    },
+    {
+      "id": "mt-item-6",
+      "name": "Crispy Medu Vada (2 pcs)",
+      "category": "Steamed Tiffin",
+      "price": 90,
+      "description": "Crispy-on-outside, fluffy-inside golden black lentil donuts with peppercorns and curry leaves.",
+      "image": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 280
+    },
+    {
+      "id": "mt-item-7",
+      "name": "Madras Kumbakonam Degree Kaapi",
+      "category": "Filter Kaapi & Coolers",
+      "price": 70,
+      "description": "Dark-roast coffee decoction boiled with rich cow milk and frothered between brass davarah and tumbler.",
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 95
+    },
+    {
+      "id": "mt-item-8",
+      "name": "Jaggery Ginger Panakam",
+      "category": "Filter Kaapi & Coolers",
+      "price": 60,
+      "description": "Traditional coolant drink made of organic palm jaggery, crushed black pepper, dry ginger, and green cardamom.",
+      "image": "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 60
+    },
+    {
+      "id": "mt-item-9",
+      "name": "Pure Cow Ghee Kesari Bath",
+      "category": "Traditional Sweets",
+      "price": 80,
+      "description": "Melt-in-mouth semolina sweet infused with saffron strands, roasted cashews, plump golden raisins, and pure cow ghee.",
+      "image": "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 250
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-mylapore-tiffin-1",
+      "orderNumber": 301,
+      "tableNumber": "Table 1",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "mylapore-tiffin-item-1",
+          "name": "Ghee Podi Crispy Roast Dosa",
+          "image": "https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 130
+        }
+      ],
+      "subtotal": 260,
+      "cgstAmount": 7,
+      "sgstAmount": 7,
+      "taxAmount": 13,
+      "totalAmount": 273,
+      "status": "preparing",
+      "paymentStatus": "pending",
+      "customerName": "Rahul Verma",
+      "createdAt": "2026-09-16T16:29:47.595Z",
+      "updatedAt": "2026-09-16T16:33:47.595Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

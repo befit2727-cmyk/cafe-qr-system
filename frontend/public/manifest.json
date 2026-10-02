@@ -1,0 +1,17 @@
+{
+  "name": "Chai & Charcha Craft Cafe",
+  "short_name": "Chai & Charcha",
+  "description": "Contactless 3D Table QR Ordering & Cafe Menu",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#130e0c",
+  "theme_color": "#130e0c",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

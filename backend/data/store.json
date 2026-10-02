@@ -1,0 +1,209 @@
+{
+  "config": {
+    "name": "Chai & Charcha Craft Cafe",
+    "tagline": "Specialty Teas, Filter Kaapi & Desi Gourmet",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Plot 14, Linking Road, Bandra West, Mumbai",
+    "phone": "+91 98201 54321",
+    "wifiName": "ChaiCharcha_Guest5G",
+    "wifiPassword": "kadakchai123",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Table 6",
+      "Table 7",
+      "Table 8",
+      "Patio 1",
+      "Patio 2",
+      "Baithak 1",
+      "Baithak 2"
+    ],
+    "logoUrl": "☕"
+  },
+  "menu": [
+    {
+      "id": "in-item-1",
+      "name": "Adrak Elaichi Kulhad Chai",
+      "category": "Chai & Kaapi",
+      "price": 60,
+      "description": "Slow-brewed Assam CTC infused with fresh hand-crushed ginger, green cardamom, and full-cream buffalo milk in an earthen terracotta kulhad.",
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "sizes": [
+        {
+          "name": "Single Kulhad",
+          "extraPrice": 0
+        },
+        {
+          "name": "Cutting Kettle (Serves 3)",
+          "extraPrice": 90
+        }
+      ],
+      "sugarLevels": [
+        "Standard Sweet",
+        "Less Sugar",
+        "Gud (Jaggery)",
+        "Sugar-Free"
+      ],
+      "calories": 120
+    },
+    {
+      "id": "in-item-2",
+      "name": "South Indian Filter Kaapi",
+      "category": "Chai & Kaapi",
+      "price": 80,
+      "description": "Authentic Chikmagalur dark-roast coffee decoction frothed high with frothy buffalo milk, served in traditional brass davarah and tumbler.",
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "sugarLevels": [
+        "Strong & Sweet",
+        "Less Sugar",
+        "No Sugar"
+      ],
+      "calories": 110
+    },
+    {
+      "id": "in-item-3",
+      "name": "Irani Dum Chai with Bun Maska",
+      "category": "Chai & Kaapi",
+      "price": 120,
+      "description": "Legendary Irani cafe style condensed-milk dum tea paired with a warm, soft Brun Pav generously slathered with Amul salted butter.",
+      "image": "https://images.unsplash.com/photo-1561336313-0bd5e0b27ec8?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 320
+    },
+    {
+      "id": "in-item-7",
+      "name": "Bombay Masala Grilled Sandwich",
+      "category": "Bombay Sandwiches & Rolls",
+      "price": 160,
+      "description": "Triple-layer toasted sandwich stuffed with spiced potatoes, beetroots, cucumber, bell peppers, melted Amul cheese, and spicy mint-coriander chutney.",
+      "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "spiceLevels": [
+        "Medium Spicy",
+        "Extra Spicy",
+        "Mild"
+      ],
+      "calories": 440
+    },
+    {
+      "id": "in-item-8",
+      "name": "Tandoori Paneer Tikka Kathi Roll",
+      "category": "Bombay Sandwiches & Rolls",
+      "price": 190,
+      "description": "Flaky paratha layered with charcoal-smoked malai paneer tikka, crunchy lachha onions, tangy chaat masala, and mint dip.",
+      "image": "https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 9,
+      "calories": 490
+    },
+    {
+      "id": "in-item-10",
+      "name": "Mumbai Samosa Pav with Thecha",
+      "category": "Desi Nashta & Breakfast",
+      "price": 90,
+      "description": "Two crispy Punjabi aloo samosas stuffed in fresh ladi pav with spicy garlic thecha, sweet tamarind chutney, and fried green chilli.",
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 380
+    },
+    {
+      "id": "in-item-14",
+      "name": "Cafe Special Peri Peri Fries",
+      "category": "Chaat & Street Bites",
+      "price": 130,
+      "description": "Crispy skin-on potato fries dusted with hot African-Indian peri peri masala, served with tandoori mayo dip.",
+      "image": "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isJainAvailable": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 310
+    },
+    {
+      "id": "in-item-16",
+      "name": "Sizzling Brownie with Ice Cream",
+      "category": "Fusion Desserts",
+      "price": 210,
+      "description": "Gooey Belgian chocolate fudge walnut brownie served on a scorching iron sizzler plate with vanilla ice cream and streaming hot chocolate ganache.",
+      "image": "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 510
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-301",
+      "orderNumber": 301,
+      "tableNumber": "Table 3",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "in-item-1",
+          "name": "Adrak Elaichi Kulhad Chai",
+          "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 60,
+          "selectedSugar": "Less Sugar",
+          "specialNotes": "Make it extra kadak"
+        },
+        {
+          "cartItemId": "c2",
+          "menuItemId": "in-item-7",
+          "name": "Bombay Masala Grilled Sandwich",
+          "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+          "quantity": 1,
+          "unitPrice": 160
+        }
+      ],
+      "subtotal": 280,
+      "cgstAmount": 7,
+      "sgstAmount": 7,
+      "taxAmount": 14,
+      "totalAmount": 294,
+      "status": "completed",
+      "paymentStatus": "paid_at_counter",
+      "customerName": "Aarav Sharma",
+      "createdAt": "2026-09-16T08:38:57.630Z",
+      "updatedAt": "2026-09-16T08:48:45.475Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

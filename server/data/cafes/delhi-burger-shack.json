@@ -1,0 +1,213 @@
+{
+  "config": {
+    "id": "delhi-burger-shack",
+    "name": "Delhi Burger & Brew Shack",
+    "tagline": "Gourmet Smashed Burgers, Loaded Fries & Shakes",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "High Street Commercial Arcade",
+    "phone": "+91 98000 00000",
+    "wifiName": "delhi-burger-shack_GuestWifi",
+    "wifiPassword": "guestwelcome",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Booth 1",
+      "Booth 2",
+      "Booth 3",
+      "Table 1",
+      "Table 2",
+      "Patio 1"
+    ],
+    "logoUrl": "🍔",
+    "status": "active",
+    "plan": "Premium Pro"
+  },
+  "menu": [
+    {
+      "id": "dbs-item-1",
+      "name": "Truffle Smash Double Cheese Burger",
+      "category": "Gourmet Burgers",
+      "price": 260,
+      "description": "Double crispy smashed patties, melted sharp cheddar, caramelized balsamic onions, and truffle aioli on toasted brioche.",
+      "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 720
+    },
+    {
+      "id": "dbs-item-2",
+      "name": "Crispy Paneer Makhani Burger",
+      "category": "Gourmet Burgers",
+      "price": 240,
+      "description": "Thick panko-crusted cottage cheese steak glazed in rich Delhi makhani gravy, pickled onions, and mint mayo.",
+      "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 690
+    },
+    {
+      "id": "dbs-item-3",
+      "name": "Smoky BBQ Pulled Jackfruit Burger",
+      "category": "Gourmet Burgers",
+      "price": 270,
+      "description": "Slow-roasted tender jackfruit tossed in Texas hickory BBQ sauce, crunchy purple slaw, and dill gherkins.",
+      "image": "https://images.unsplash.com/photo-1586190848861-99aa4a171e90?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 9,
+      "calories": 580
+    },
+    {
+      "id": "dbs-item-4",
+      "name": "Animal-Style Cheddar Loaded Fries",
+      "category": "Sides & Fries",
+      "price": 180,
+      "description": "Crispy golden french fries smothered in warm molten cheddar sauce, caramelized onions, and secret shack relish.",
+      "image": "https://images.unsplash.com/photo-1585109649139-366815a0d713?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 480
+    },
+    {
+      "id": "dbs-item-5",
+      "name": "Truffle Parmesan Curly Fries",
+      "category": "Sides & Fries",
+      "price": 160,
+      "description": "Spiral seasoned potato fries tossed with Italian white truffle oil, rosemary sea salt, and grated aged parmesan.",
+      "image": "https://images.unsplash.com/photo-1576107232684-1279f3908594?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 420
+    },
+    {
+      "id": "dbs-item-6",
+      "name": "Crispy Peri Peri Onion Rings",
+      "category": "Sides & Fries",
+      "price": 140,
+      "description": "Beer-battered jumbo sweet onion rings dusted with fiery African peri peri spice, served with garlic dip.",
+      "image": "https://images.unsplash.com/photo-1639024471285-0afc383186d5?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 310
+    },
+    {
+      "id": "dbs-item-7",
+      "name": "Salted Caramel Pretzel Shake",
+      "category": "Thick Shakes",
+      "price": 190,
+      "description": "Vanilla bean gelato blended with rich salted butter caramel, topped with whipped cream and crushed crunchy pretzels.",
+      "image": "https://images.unsplash.com/photo-1572490122747-3968b75cc699?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 490
+    },
+    {
+      "id": "dbs-item-8",
+      "name": "Belgian Triple Dark Chocolate Shake",
+      "category": "Thick Shakes",
+      "price": 210,
+      "description": "70% Belgian chocolate fudge gelato, rich dark chocolate syrup, chocolate chips, and chocolate shavings.",
+      "image": "https://images.unsplash.com/photo-1579954115545-a95591f28bfc?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 540
+    },
+    {
+      "id": "dbs-item-9",
+      "name": "Berry Blast Gelato Thick Shake",
+      "category": "Thick Shakes",
+      "price": 180,
+      "description": "Wild blueberries, strawberries, and blackberries whipped with dairy ice cream for a vibrant fruity shake.",
+      "image": "https://images.unsplash.com/photo-1553787499-6f9133860278?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 410
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-1790953976094",
+      "orderNumber": 302,
+      "tableNumber": "Patio 1",
+      "items": [
+        {
+          "cartItemId": "dbs-item-2-----",
+          "menuItemId": "dbs-item-2",
+          "name": "Crispy Paneer Makhani Burger",
+          "image": "https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80",
+          "quantity": 3,
+          "unitPrice": 240,
+          "selectedSize": "",
+          "selectedSugar": "",
+          "selectedSpice": "",
+          "isJain": false
+        },
+        {
+          "cartItemId": "dbs-item-6-----",
+          "menuItemId": "dbs-item-6",
+          "name": "Crispy Peri Peri Onion Rings",
+          "image": "https://images.unsplash.com/photo-1639024471285-0afc383186d5?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 140
+        }
+      ],
+      "subtotal": 1000,
+      "cgstAmount": 25,
+      "sgstAmount": 25,
+      "taxAmount": 50,
+      "totalAmount": 1050,
+      "status": "pending",
+      "paymentStatus": "pending",
+      "customerName": "Guest",
+      "createdAt": "2026-10-02T15:12:56.094Z",
+      "updatedAt": "2026-10-02T15:12:56.094Z"
+    },
+    {
+      "tableNumber": "Booth 1",
+      "items": [
+        {
+          "name": "Truffle Smash Cheese Burger",
+          "quantity": 2,
+          "unitPrice": 260
+        }
+      ],
+      "totalAmount": 520,
+      "id": "ord-1789574957915",
+      "orderNumber": 301,
+      "createdAt": "2026-09-16T16:09:17.915Z",
+      "updatedAt": "2026-09-16T16:09:17.915Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": [
+    {
+      "id": "call-1789913373022",
+      "tableNumber": "Booth 3",
+      "type": "waiter",
+      "createdAt": "2026-09-20T14:09:33.022Z",
+      "resolved": true
+    }
+  ]
+}

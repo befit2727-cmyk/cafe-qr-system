@@ -1,0 +1,167 @@
+{
+  "config": {
+    "id": "himalayan-pine",
+    "name": "The Himalayan Pine Cafe",
+    "tagline": "Mountain Hot Chocolate, Fresh Bakes & Warm Soups",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Near Ridge Heritage Church, Mall Road, Shimla",
+    "phone": "+91 98160 88990",
+    "wifiName": "himalayanpine_Guest",
+    "wifiPassword": "welcomeguest",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Fireplace 1",
+      "Fireplace 2",
+      "Pine Table 1",
+      "Pine Table 2",
+      "Deck 1"
+    ],
+    "logoUrl": "🍫",
+    "status": "active",
+    "plan": "Standard"
+  },
+  "menu": [
+    {
+      "id": "hp-item-1",
+      "name": "Himalayan Saffron Dark Hot Chocolate",
+      "category": "Mountain Warmers",
+      "price": 180,
+      "description": "Thick European-style molten dark chocolate infused with pure Himalayan saffron and topped with toasted marshmallows.",
+      "image": "https://images.unsplash.com/photo-1542990253-0d0f5be5f0ed?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 260
+    },
+    {
+      "id": "hp-item-2",
+      "name": "Kashmiri Shahi Kahwa with Almonds",
+      "category": "Mountain Warmers",
+      "price": 140,
+      "description": "Fragrant green tea steeped with whole cinnamon, cardamom, saffron, and slivered crunchy Kashmiri almonds.",
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 50
+    },
+    {
+      "id": "hp-item-3",
+      "name": "Cinnamon Spiced Honey Toddy",
+      "category": "Mountain Warmers",
+      "price": 150,
+      "description": "Non-alcoholic winter warmer brewed with wild forest honey, fresh lemon juice, star anise, and cloves.",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 80
+    },
+    {
+      "id": "hp-item-4",
+      "name": "Pahadi Butter Maggi with Amul Cheese",
+      "category": "Mountain Cafe Bites",
+      "price": 120,
+      "description": "The quintessential hill station noodle bowl cooked with sweet peas, carrots, mountain masala, butter, and grated cheese.",
+      "image": "https://images.unsplash.com/photo-1612927601601-6638404737ce?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 5,
+      "calories": 410
+    },
+    {
+      "id": "hp-item-5",
+      "name": "Cheesy Veg Thukpa Tibetan Noodle Bowl",
+      "category": "Mountain Cafe Bites",
+      "price": 190,
+      "description": "Handmade noodles in a rich ginger-garlic vegetable broth loaded with bok choy, mushrooms, and melted cheese.",
+      "image": "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 460
+    },
+    {
+      "id": "hp-item-6",
+      "name": "Warm Spiced Apple Cinnamon Crumble",
+      "category": "Mountain Cafe Bites",
+      "price": 160,
+      "description": "Baked Kinnaur apples stewed in brown sugar and cinnamon, topped with oat crumble and vanilla cream.",
+      "image": "https://images.unsplash.com/photo-1568571780765-9276ac8b75a2?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 310
+    },
+    {
+      "id": "hp-item-7",
+      "name": "Smoked Himalayan Cheddar Toastie",
+      "category": "Artisan Toasties",
+      "price": 190,
+      "description": "Thick multigrain bread grilled with aged smoked cheese, caramelized shallots, and whole grain mustard.",
+      "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 430
+    },
+    {
+      "id": "hp-item-8",
+      "name": "Charred Mountain Spiced Sweetcorn Chaat",
+      "category": "Artisan Toasties",
+      "price": 140,
+      "description": "Pan-roasted sweetcorn kernels tossed with mountain rock salt, lime juice, fresh coriander, and melted butter.",
+      "image": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 190
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-himalayan-pine-1",
+      "orderNumber": 301,
+      "tableNumber": "Table 1",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "himalayan-pine-item-1",
+          "name": "Adrak Elaichi Kulhad Chai",
+          "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 60
+        }
+      ],
+      "subtotal": 120,
+      "cgstAmount": 3,
+      "sgstAmount": 3,
+      "taxAmount": 6,
+      "totalAmount": 126,
+      "status": "completed",
+      "paymentStatus": "paid_at_counter",
+      "customerName": "Rahul Verma",
+      "createdAt": "2026-09-16T16:29:47.596Z",
+      "updatedAt": "2026-09-17T01:26:23.997Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

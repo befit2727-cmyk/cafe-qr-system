@@ -1,0 +1,18 @@
+# Render Blueprint Specification (https://render.com/docs/blueprint-spec)
+# 1-Click Zero-Configuration Deployment for Commercial Cafe SaaS Platform Backend
+
+services:
+  - type: web
+    name: cafe-qr-platform-backend
+    runtime: node
+    plan: free
+    region: oregon
+    buildCommand: npm install
+    startCommand: node backend/server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 5000
+      - key: TYPESAFE_API_KEY
+        sync: false

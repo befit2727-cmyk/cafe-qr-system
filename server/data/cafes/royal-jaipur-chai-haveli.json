@@ -1,0 +1,124 @@
+{
+  "config": {
+    "id": "royal-jaipur-chai-haveli",
+    "name": "Royal Jaipur Chai Haveli",
+    "tagline": "Artisan Chai, Filter Kaapi & Street Gourmet",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Main High Street Boulevard",
+    "phone": "+91 98000 00000",
+    "wifiName": "royaljaipurchaihaveli_Guest",
+    "wifiPassword": "welcomeguest",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Table 1",
+      "Table 2",
+      "Table 3",
+      "Table 4",
+      "Table 5",
+      "Patio 1",
+      "Baithak 1"
+    ],
+    "logoUrl": "☕"
+  },
+  "menu": [
+    {
+      "id": "royal-jaipur-chai-haveli-item-1",
+      "name": "Adrak Elaichi Kulhad Chai",
+      "category": "Chai & Kaapi",
+      "price": 60,
+      "description": "Fresh crushed ginger, cardamom, and thick buffalo milk in an earthen terracotta kulhad.",
+      "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isJainAvailable": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "sugarLevels": [
+        "Standard Sweet",
+        "Less Sugar",
+        "Gud (Jaggery)",
+        "Sugar-Free"
+      ],
+      "calories": 120
+    },
+    {
+      "id": "royal-jaipur-chai-haveli-item-2",
+      "name": "South Indian Filter Kaapi",
+      "category": "Chai & Kaapi",
+      "price": 80,
+      "description": "Traditional Chikmagalur dark-roast coffee decoction served in a brass davarah tumbler.",
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "sugarLevels": [
+        "Strong & Sweet",
+        "Less Sugar",
+        "No Sugar"
+      ],
+      "calories": 110
+    },
+    {
+      "id": "royal-jaipur-chai-haveli-item-3",
+      "name": "Bombay Masala Grilled Sandwich",
+      "category": "Bombay Sandwiches & Rolls",
+      "price": 160,
+      "description": "Triple-layer sandwich with spiced potatoes, beetroots, crunchy veggies, melted cheese, and mint chutney.",
+      "image": "https://images.unsplash.com/photo-1528735602780-2552fd46c7af?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 8,
+      "calories": 440
+    },
+    {
+      "id": "royal-jaipur-chai-haveli-item-4",
+      "name": "Mumbai Samosa Pav with Thecha",
+      "category": "Desi Nashta & Breakfast",
+      "price": 90,
+      "description": "Crispy aloo samosas in warm ladi pav with spicy garlic thecha and sweet tamarind chutney.",
+      "image": "https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 380
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-royal-jaipur-chai-haveli-1",
+      "orderNumber": 301,
+      "tableNumber": "Table 1",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "royal-jaipur-chai-haveli-item-1",
+          "name": "Adrak Elaichi Kulhad Chai",
+          "image": "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 60
+        }
+      ],
+      "subtotal": 120,
+      "cgstAmount": 3,
+      "sgstAmount": 3,
+      "taxAmount": 6,
+      "totalAmount": 126,
+      "status": "preparing",
+      "paymentStatus": "pending",
+      "customerName": "Rahul Verma",
+      "createdAt": "2026-10-02T13:04:18.059Z",
+      "updatedAt": "2026-10-02T13:08:18.059Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "usr-admin-1",
+    "name": "Platform Administrator (Vendor)",
+    "email": "admin@cafesaas.com",
+    "password": "5fc50a1dcd3393d378adbe2e4d070c42:eed67df7968d2379a126c72b25ce634b6ec01cf6761089e5a494efc14459823793921e9e6ccf5cce7a4660fcc6eaf955625e998ec81a8d971ba64aed9f53836e",
+    "role": "superadmin",
+    "cafeId": null,
+    "cafeName": "All Cafes (Platform Master)",
+    "createdAt": "2026-09-16T16:34:37.561Z"
+  },
+  {
+    "id": "usr-owner-1",
+    "name": "Aarav Sharma (Owner)",
+    "email": "owner@chaicharcha.com",
+    "password": "525752da7c72ee138dabae075c917b2b:a7d658dbc75c3350552c8c606f012623ca64f5abc6006b2d7bfdc63a01071949c5fb0b2f339fe4da1f838c5e3c8f4ff7da0ed349db20a839603efae7c6d65800",
+    "role": "owner",
+    "cafeId": "chai-charcha",
+    "cafeName": "Chai & Charcha Craft Cafe",
+    "createdAt": "2026-09-16T16:34:37.605Z"
+  },
+  {
+    "id": "usr-owner-2",
+    "name": "Matteo Rossi & Priya (Owner)",
+    "email": "owner@urbanbistro.com",
+    "password": "63a38ba44af2f71306611dc141551ab4:024c8076a900c41570492f2f2726f5c157f4ff1114622902cd4595f801e5a5990bbbfeb807f55b67a645313ccbfd58eef6ae5f8e8ae854d088f047e53bb07997",
+    "role": "owner",
+    "cafeId": "urban-bistro",
+    "cafeName": "Urban Bistro & Pizzeria",
+    "createdAt": "2026-09-16T16:34:37.647Z"
+  },
+  {
+    "id": "usr-owner-3",
+    "name": "Kabir Malhotra (Owner)",
+    "email": "owner@delhiburger.com",
+    "password": "bc7c6cd3de036a4d4b763f38d635c23d:f262a1eb64b6fee323cf7ec75c095e75a8537ab1283cf48ad574fa54857dd24eee6e93cf9159697cd89aebcc9059b0c2037252fc654ae275118b207e39aacb93",
+    "role": "owner",
+    "cafeId": "delhi-burger-shack",
+    "cafeName": "Delhi Burger & Brew Shack",
+    "createdAt": "2026-09-16T16:34:37.688Z"
+  },
+  {
+    "id": "usr-owner-4",
+    "name": "Ananya Deshmukh (Owner)",
+    "email": "owner@frenchpress.com",
+    "password": "abfa0e627e20052079f0869d734f11fb:1cb7743be92d9497eba320ea65bc1db704e084636efbcf4773f0badc6e276a40d164eb0f925a11a6fff3b40ea0885841151a57746113f60d11c8ed22433c43dd",
+    "role": "owner",
+    "cafeId": "french-press-roastery",
+    "cafeName": "The French Press Roastery",
+    "createdAt": "2026-09-16T16:34:37.731Z"
+  },
+  {
+    "id": "usr-owner-5",
+    "name": "S. Ramanathan (Owner)",
+    "email": "owner@mylaporetiffin.com",
+    "password": "5a9e74e20df39d7464a55698c2f05e1f:4315f2baaa14e57170acd53c3288f6dc3e6fb1066aa664ba866882ab15c6ce73febcf78679aa3850ea4fbffb0bf021c982930d9d5c5c5230148006883e35aea1",
+    "role": "owner",
+    "cafeId": "mylapore-tiffin",
+    "cafeName": "Mylapore Tiffin & Filter Kaapi",
+    "createdAt": "2026-09-16T16:34:37.770Z"
+  },
+  {
+    "id": "usr-owner-6",
+    "name": "Tenzin & Sunita (Owner)",
+    "email": "owner@himalayanpine.com",
+    "password": "886469fc87dada942d7c35a80971030f:600af587e5e4bd60c058f2ad503536afe03731611abd4062250f180bea3b8eeb3621c24a3eb3976dfeb951e5fa9807159a38b4b303e6e395225ae7c63ceed606",
+    "role": "owner",
+    "cafeId": "himalayan-pine",
+    "cafeName": "The Himalayan Pine Cafe",
+    "createdAt": "2026-09-16T16:34:37.809Z"
+  },
+  {
+    "id": "usr-owner-7",
+    "name": "Rohan Varma (Owner)",
+    "email": "owner@spiceroute.com",
+    "password": "6bee03d9dd58e11d3bf64b44dae9f865:dbb6fb45532f57d430a9c05fbcb0872718b86d18e0d79d36fdb80fbeadf7582ac53ac62c195cecebe960c35a1b9feb06bbaa945f1bbb21a73158cf05299690de",
+    "role": "owner",
+    "cafeId": "spice-route-bistro",
+    "cafeName": "Spice Route Dim Sum House",
+    "createdAt": "2026-09-16T16:34:37.854Z"
+  },
+  {
+    "id": "usr-owner-8",
+    "name": "Zack & Maya (Owner)",
+    "email": "owner@sunsetdeck.com",
+    "password": "f87e769ac4fdc5748026c879403f2283:bdcbdb71881b8a7220637afaed2549c36a1a1af554a144107f7dab26e7c8a4755e81e97fdae988fd0a050190c5441314c0a49f34921a96b4f301fe9e1153bf6e",
+    "role": "owner",
+    "cafeId": "sunset-deck-goa",
+    "cafeName": "Sunset Deck Beach Shack",
+    "createdAt": "2026-09-16T16:34:37.895Z"
+  }
+]

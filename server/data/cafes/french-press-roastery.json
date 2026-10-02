@@ -1,0 +1,179 @@
+{
+  "config": {
+    "id": "french-press-roastery",
+    "name": "The French Press Roastery & Bakery",
+    "tagline": "Handmade Sourdough, Viennoiserie & Pour-Overs",
+    "currencySymbol": "₹",
+    "taxRatePercent": 5,
+    "cgstPercent": 2.5,
+    "sgstPercent": 2.5,
+    "address": "Lane 7, North Main Road, Koregaon Park, Pune",
+    "phone": "+91 98230 77889",
+    "wifiName": "frenchpressroastery_Guest",
+    "wifiPassword": "welcomeguest",
+    "ownerPin": "1234",
+    "staffPin": "0000",
+    "fssaiNumber": "11523019000842",
+    "gstin": "27AABCT1332L1ZV",
+    "tables": [
+      "Window 1",
+      "Window 2",
+      "Table 1",
+      "Table 2",
+      "Courtyard 1"
+    ],
+    "logoUrl": "🥐",
+    "status": "active",
+    "plan": "Standard"
+  },
+  "menu": [
+    {
+      "id": "fpr-item-1",
+      "name": "Butter Flaky Almond Croissant",
+      "category": "French Viennoiserie",
+      "price": 170,
+      "description": "Twice-baked French butter croissant filled with frangipane almond cream and topped with toasted almond flakes.",
+      "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 360
+    },
+    {
+      "id": "fpr-item-2",
+      "name": "Traditional Pain au Chocolat",
+      "category": "French Viennoiserie",
+      "price": 180,
+      "description": "Flaky layered puff pastry folded around two batons of French bittersweet dark chocolate.",
+      "image": "https://images.unsplash.com/photo-1608198093002-ad4e005484ec?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 340
+    },
+    {
+      "id": "fpr-item-3",
+      "name": "Cinnamon Sugar Morning Cruffin",
+      "category": "French Viennoiserie",
+      "price": 160,
+      "description": "Hybrid croissant-muffin rolled in spiced Ceylon cinnamon sugar with a soft vanilla custard center.",
+      "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 310
+    },
+    {
+      "id": "fpr-item-4",
+      "name": "Artisanal Avocado Feta Sourdough Toast",
+      "category": "Artisan Sourdough",
+      "price": 260,
+      "description": "Toasted country sourdough slice spread with creamy Haas avocado, crumbled Greek feta, cherry tomatoes, and microgreens.",
+      "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 380
+    },
+    {
+      "id": "fpr-item-5",
+      "name": "Wild Forest Mushroom Bruschetta",
+      "category": "Artisan Sourdough",
+      "price": 240,
+      "description": "Sauteed cremini and button mushrooms with thyme garlic butter, reduced balsamic, and goat cheese on sourdough.",
+      "image": "https://images.unsplash.com/photo-1572695157366-5e585ab2b69f?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 6,
+      "calories": 320
+    },
+    {
+      "id": "fpr-item-6",
+      "name": "Cold Drip Ethiopian Yirgacheffe",
+      "category": "Pour-Over & Single Origin",
+      "price": 210,
+      "description": "12-hour slow cold drip with delicate tasting notes of bergamot, jasmine florals, and sweet wild blueberry.",
+      "image": "https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 5
+    },
+    {
+      "id": "fpr-item-7",
+      "name": "Chikmagalur Aeropress Reserve",
+      "category": "Pour-Over & Single Origin",
+      "price": 190,
+      "description": "High-altitude Karnataka estate coffee brewed via AeroPress for clean cup clarity and chocolate undertones.",
+      "image": "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isGlutenFree": true,
+      "isPopular": false,
+      "inStock": true,
+      "prepTimeMinutes": 4,
+      "calories": 5
+    },
+    {
+      "id": "fpr-item-8",
+      "name": "Signature Velvety Flat White",
+      "category": "Pour-Over & Single Origin",
+      "price": 180,
+      "description": "Double ristretto espresso shots blended seamlessly with micro-foamed whole milk and latte art.",
+      "image": "https://images.unsplash.com/photo-1577968897966-3d4325b36b61?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 3,
+      "calories": 120
+    },
+    {
+      "id": "fpr-item-9",
+      "name": "Madagascar Vanilla Bean Éclair",
+      "category": "Patisserie Desserts",
+      "price": 190,
+      "description": "Crisp choux pastry shell filled with vanilla bean pastry cream and coated in dark chocolate ganache.",
+      "image": "https://images.unsplash.com/photo-1587314168485-3236d6710814?auto=format&fit=crop&w=600&q=80",
+      "isVeg": true,
+      "isPopular": true,
+      "inStock": true,
+      "prepTimeMinutes": 2,
+      "calories": 290
+    }
+  ],
+  "orders": [
+    {
+      "id": "ord-french-press-roastery-1",
+      "orderNumber": 301,
+      "tableNumber": "Window 1",
+      "items": [
+        {
+          "cartItemId": "c1",
+          "menuItemId": "french-press-roastery-item-1",
+          "name": "Butter Flaky Almond Croissant",
+          "image": "https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80",
+          "quantity": 2,
+          "unitPrice": 170
+        }
+      ],
+      "subtotal": 340,
+      "cgstAmount": 9,
+      "sgstAmount": 9,
+      "taxAmount": 17,
+      "totalAmount": 357,
+      "status": "completed",
+      "paymentStatus": "paid_at_counter",
+      "customerName": "Rahul Verma",
+      "createdAt": "2026-09-16T16:29:47.593Z",
+      "updatedAt": "2026-09-20T13:57:51.635Z"
+    }
+  ],
+  "reservations": [],
+  "waiterCalls": []
+}
