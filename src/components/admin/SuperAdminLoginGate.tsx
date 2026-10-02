@@ -211,7 +211,7 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
                   className="inline-flex items-center gap-1 text-[11px] font-medium text-[#8ab4f8] hover:underline"
                 >
                   <RotateCcw className="w-3 h-3" />
-                  <span>Reset Limit (Demo Mode)</span>
+                  <span>Reset Limit</span>
                 </button>
               </div>
             </div>

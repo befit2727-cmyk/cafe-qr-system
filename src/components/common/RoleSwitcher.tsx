@@ -119,18 +119,20 @@ export const RoleSwitcher: React.FC = () => {
               <Shield className="w-3 h-3" />
               <span>Owner</span>
             </button>
-            <button
-              onClick={() => handleRoleClick("superadmin")}
-              className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-medium transition-all ${
-                role === "superadmin"
-                  ? "bg-[#0071e3] text-white shadow-xs"
-                  : "text-[#a1a1a6] hover:text-[#2997ff]"
-              }`}
-              title="Super Admin Vendor Master Portal"
-            >
-              <Crown className="w-3 h-3" />
-              <span>Super Admin</span>
-            </button>
+            {currentUser?.role === "superadmin" && (
+              <button
+                onClick={() => handleRoleClick("superadmin")}
+                className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-medium transition-all ${
+                  role === "superadmin"
+                    ? "bg-[#0071e3] text-white shadow-xs"
+                    : "text-[#a1a1a6] hover:text-[#2997ff]"
+                }`}
+                title="Super Admin Vendor Master Portal"
+              >
+                <Crown className="w-3 h-3" />
+                <span>Super Admin</span>
+              </button>
+            )}
           </div>
         </div>
 
@@ -166,22 +168,17 @@ export const RoleSwitcher: React.FC = () => {
             </button>
           )}
 
-          {/* SaaS Platform Button - Under Super Admin Protection */}
-          <button
-            onClick={handleSaaSClick}
-            className={`flex items-center gap-1.5 font-medium px-3 py-1 rounded-full border shadow-xs transition-all text-xs active:scale-95 ${
-              currentUser?.role === "superadmin"
-                ? "bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/30"
-                : "bg-white/5 hover:bg-white/10 text-[#d6d6d7] hover:text-white border-white/10"
-            }`}
-            title="SaaS Platform Master (Protected under Super Admin)"
-          >
-            <Crown className="w-3.5 h-3.5 text-amber-400" />
-            <span className="max-w-[110px] truncate hidden xs:inline font-medium">SaaS Platform</span>
-            <span className="text-[10px] bg-amber-500/20 text-amber-300 px-1.5 py-0.2 rounded-full font-mono font-bold">
-              Super Admin
-            </span>
-          </button>
+          {/* SaaS Platform Button - Only visible when logged in as Super Admin */}
+          {currentUser?.role === "superadmin" && (
+            <button
+              onClick={handleSaaSClick}
+              className="flex items-center gap-1.5 font-medium px-3 py-1 rounded-full border shadow-xs transition-all text-xs active:scale-95 bg-amber-500/15 hover:bg-amber-500/25 text-amber-300 border-amber-500/30"
+              title="SaaS Platform Master (Protected under Super Admin)"
+            >
+              <Crown className="w-3.5 h-3.5 text-amber-400" />
+              <span className="max-w-[110px] truncate hidden xs:inline font-medium">SaaS Platform</span>
+            </button>
+          )}
 
           {/* Quick Table QR Codes button */}
           <button

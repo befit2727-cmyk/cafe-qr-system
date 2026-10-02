@@ -296,7 +296,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                         className="inline-flex items-center gap-1.5 text-[11px] font-medium text-[#8ab4f8] hover:underline"
                       >
                         <RotateCcw className="w-3 h-3" />
-                        <span>Reset Daily Quota (Demo Mode)</span>
+                        <span>Reset Daily Quota</span>
                       </button>
                     </div>
                   </div>
@@ -366,7 +366,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     </label>
                     <button
                       type="button"
-                      onClick={() => setError("Demo credentials are listed below under '1-Click Accounts'.")}
+                      onClick={() => setError("Please contact your system administrator or platform support to reset your credentials.")}
                       className="text-[11px] text-[#8ab4f8] hover:underline"
                     >
                       Forgot password?
@@ -405,20 +405,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                 </div>
               </form>
 
-              {/* Master Super Admin Direct Link */}
-              <div className="text-center pt-2">
-                <button
-                  type="button"
-                  onClick={() => {
-                    onClose();
-                    setRole("superadmin");
-                  }}
-                  className="text-xs text-[#9aa0a6] hover:text-[#8ab4f8] transition-colors inline-flex items-center gap-1.5"
-                >
-                  <Lock className="w-3 h-3 text-[#8ab4f8]" />
-                  <span>SaaS Vendor Master Control Gate (/?admin)</span>
-                </button>
-              </div>
+
 
               {/* Google Clean Footer */}
               <div className="pt-3 border-t border-[#444746]/40 flex flex-wrap items-center justify-between text-[11px] text-[#747775]">
