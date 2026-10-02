@@ -171,6 +171,27 @@
   ],
   "orders": [
     {
+      "subtotal": 98,
+      "customerPhone": "+91 99999 88888",
+      "total": 102.9,
+      "tax": 4.9,
+      "tableNumber": "Table 1",
+      "items": [
+        {
+          "price": 49,
+          "quantity": 2,
+          "name": "Adrak Elaichi Kulhad Chai",
+          "id": "c1"
+        }
+      ],
+      "customerName": "Executive Test Order",
+      "id": "ord-1790959866177",
+      "orderNumber": 303,
+      "createdAt": "2026-10-02T16:51:06.177Z",
+      "updatedAt": "2026-10-02T16:52:07.831Z",
+      "status": "served"
+    },
+    {
       "subtotal": 120,
       "totalAmount": 126,
       "customerName": "Test Automated Senior Engineer",
