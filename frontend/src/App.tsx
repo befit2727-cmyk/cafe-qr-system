@@ -9,9 +9,21 @@ import { SuperAdminDashboard } from "./components/admin/SuperAdminDashboard";
 import { SuperAdminLoginGate } from "./components/admin/SuperAdminLoginGate";
 
 const MainContent: React.FC = () => {
-  const { role, currentUser } = useCafe();
+  const { role, currentUser, setRole } = useCafe();
 
   const isSuperAdminAuthed = currentUser?.role === "superadmin";
+
+  // Power shortcut: Ctrl+Shift+A opens Master Admin Gate securely
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === "A" || e.key === "a")) {
+        e.preventDefault();
+        setRole("superadmin");
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [setRole]);
 
   return (
     <div className="min-h-screen flex flex-col">

@@ -35,7 +35,8 @@ export const CustomerView: React.FC = () => {
     selectedItemFor3D,
     setSelectedItemFor3D,
     viewMode3D,
-    setViewMode3D
+    setViewMode3D,
+    setRole
   } = useCafe();
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
@@ -397,6 +398,30 @@ export const CustomerView: React.FC = () => {
         </AnimatePresence>
 
       </main>
+
+      {/* Professional Customer Footer with Subtle Admin Gate Link */}
+      <footer className="mt-14 border-t border-stone-200/80 bg-white/70 backdrop-blur-xs py-8 px-4 text-xs text-stone-500">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-center sm:text-left">
+            <p className="font-bold text-stone-800">{config.name} • Contactless Dining</p>
+            <p className="text-[11px] text-stone-400 mt-0.5">{config.address || "Craft Cafe & Artisan Roasters"} • {config.phone}</p>
+          </div>
+          <div className="flex flex-wrap items-center justify-center gap-3 text-[11px]">
+            <span className="text-stone-600 font-medium">FSSAI Hygiene Certified</span>
+            <span>•</span>
+            <span className="text-stone-600 font-medium">Daily Fresh Bakes</span>
+            <span>•</span>
+            <button
+              type="button"
+              onClick={() => setRole("superadmin")}
+              className="text-stone-400 hover:text-stone-700 transition-colors underline cursor-pointer"
+              title="Platform Vendor / Super Admin Login Gate"
+            >
+              Admin Access
+            </button>
+          </div>
+        </div>
+      </footer>
 
       {/* Floating Bottom Cart Bar for Mobile */}
       {cartCount > 0 && (

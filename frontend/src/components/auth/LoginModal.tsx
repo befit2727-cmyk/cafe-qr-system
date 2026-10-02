@@ -414,6 +414,17 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Help</span>
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Privacy</span>
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Terms</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      setRole("superadmin");
+                    }}
+                    className="hover:text-[#8ab4f8] transition-colors cursor-pointer"
+                    title="Master Platform Administrator Console"
+                  >
+                    Admin Console
+                  </button>
                 </div>
               </div>
             </>
