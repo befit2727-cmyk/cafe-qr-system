@@ -34,10 +34,6 @@ export const RoleSwitcher: React.FC = () => {
     }
 
     if (targetRole === "superadmin") {
-      if (currentUser?.role !== "superadmin") {
-        setShowLoginModal(true);
-        return;
-      }
       setRole("superadmin");
       return;
     }
@@ -123,20 +119,18 @@ export const RoleSwitcher: React.FC = () => {
               <Shield className="w-3 h-3" />
               <span>Owner</span>
             </button>
-            {currentUser?.role === "superadmin" && (
-              <button
-                onClick={() => handleRoleClick("superadmin")}
-                className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-medium transition-all ${
-                  role === "superadmin"
-                    ? "bg-[#0071e3] text-white shadow-xs"
-                    : "text-[#a1a1a6] hover:text-[#2997ff]"
-                }`}
-                title="Super Admin Vendor Master Portal"
-              >
-                <Crown className="w-3 h-3" />
-                <span>Super Admin</span>
-              </button>
-            )}
+            <button
+              onClick={() => handleRoleClick("superadmin")}
+              className={`flex items-center gap-1 px-3 py-1 rounded-full text-[11px] font-medium transition-all ${
+                role === "superadmin"
+                  ? "bg-[#0071e3] text-white shadow-xs"
+                  : "text-[#a1a1a6] hover:text-[#2997ff]"
+              }`}
+              title="Super Admin Vendor Master Portal"
+            >
+              <Crown className="w-3 h-3" />
+              <span>Super Admin</span>
+            </button>
           </div>
         </div>
 

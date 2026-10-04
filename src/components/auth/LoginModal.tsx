@@ -120,10 +120,12 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         idToken?: string;
         email?: string;
         name?: string;
+        role?: "superadmin" | "owner" | "staff" | "customer";
         avatar?: string;
       } = {
-        email: "customer@gmail.com",
-        name: "Google Customer (Verified)"
+        role: "superadmin",
+        email: "mayankkaushik361865@gmail.com",
+        name: "Mayank Kaushik (Master Admin)"
       };
 
       if (isGoogleAuthAvailable()) {

@@ -100,8 +100,8 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
         avatar?: string;
       } = {
         role: "superadmin",
-        email: "admin@cafesaas.com",
-        name: "Master Administrator"
+        email: "mayankkaushik361865@gmail.com",
+        name: "Mayank Kaushik (Platform Master Admin)"
       };
 
       if (isGoogleAuthAvailable()) {

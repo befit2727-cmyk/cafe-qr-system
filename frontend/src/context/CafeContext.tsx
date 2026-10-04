@@ -60,7 +60,7 @@ interface CafeContextType {
   currentUser: AuthUser | null;
   login: (email: string, password?: string) => Promise<boolean>;
   loginWithPin: (pin: string, targetRole?: "owner" | "staff") => Promise<boolean>;
-  loginWithGoogle: (options?: { idToken?: string; role?: "owner" | "superadmin"; email?: string; name?: string; avatar?: string }) => Promise<boolean>;
+  loginWithGoogle: (options?: { idToken?: string; role?: UserRole; email?: string; name?: string; avatar?: string }) => Promise<boolean>;
   logout: () => void;
   showLoginModal: boolean;
   setShowLoginModal: (show: boolean) => void;
@@ -284,11 +284,13 @@ export const CafeProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       }
 
       // Guaranteed seamless session fallback
-      const resolvedRole = options?.role || (options?.email?.toLowerCase().includes("admin") ? "superadmin" : "customer");
+      const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
+      const isSuperAdminEmail = options?.email && adminEmails.includes(options.email.toLowerCase().trim());
+      const resolvedRole = options?.role || (isSuperAdminEmail || options?.email?.toLowerCase().includes("admin") ? "superadmin" : "customer");
       const fallbackUser = {
         id: `usr-google-${Date.now()}`,
-        name: options?.name || (resolvedRole === "superadmin" ? "Master Administrator" : "Google User"),
-        email: options?.email || (resolvedRole === "superadmin" ? "admin@cafesaas.com" : "customer@gmail.com"),
+        name: options?.name || (resolvedRole === "superadmin" ? "Mayank Kaushik" : "Google User"),
+        email: options?.email || (resolvedRole === "superadmin" ? "mayankkaushik361865@gmail.com" : "customer@gmail.com"),
         role: resolvedRole,
         cafeId: resolvedRole === "owner" ? activeCafeId : null,
         cafeName: resolvedRole === "owner" ? config.name : (resolvedRole === "superadmin" ? "All Cafes (Platform Master)" : null),
