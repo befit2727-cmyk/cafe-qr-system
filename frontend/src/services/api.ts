@@ -1,8 +1,10 @@
 import { DEFAULT_CAFES } from "../data/defaultCafes";
 
 export const API_SERVER = typeof window !== "undefined"
-  ? (import.meta.env.VITE_API_URL as string) || (window.location.hostname === "localhost" ? "http://localhost:5000" : "")
-  : "http://localhost:5000";
+  ? (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+      ? (import.meta.env.VITE_API_URL as string) || "http://localhost:5000"
+      : "")
+  : "";
 
 export const API_BASE = API_SERVER ? `${API_SERVER}/api` : "/api";
 
