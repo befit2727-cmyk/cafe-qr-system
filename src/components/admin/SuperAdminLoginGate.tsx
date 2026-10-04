@@ -92,35 +92,28 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
     setError(null);
     setLoading(true);
     try {
-      let googleData: {
-        role: "superadmin";
-        idToken?: string;
-        email?: string;
-        name?: string;
-        avatar?: string;
-      } = {
-        role: "superadmin",
-        email: "mayankkaushik361865@gmail.com",
-        name: "Mayank Kaushik (Platform Master Admin)"
-      };
+      const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
 
       if (isGoogleAuthAvailable()) {
-        try {
-          const userInfo = await promptGoogleLogin();
-          googleData = {
-            role: "superadmin",
-            idToken: userInfo.idToken,
-            email: userInfo.email,
-            name: userInfo.name,
-            avatar: userInfo.avatar
-          };
-        } catch (e: any) {
-          console.warn("Google popup dismissed, using admin session:", e.message);
+        const userInfo = await promptGoogleLogin();
+        if (!adminEmails.includes(userInfo.email.toLowerCase().trim())) {
+          setError(`Access Denied: ${userInfo.email} is not authorized for Platform Administration.`);
+          setLoading(false);
+          return;
         }
+        const ok = await loginWithGoogle({
+          role: "superadmin",
+          idToken: userInfo.idToken,
+          email: userInfo.email,
+          name: userInfo.name,
+          avatar: userInfo.avatar
+        });
+        if (ok && onSuccess) onSuccess();
+      } else {
+        // When Google OAuth Client ID is not yet connected on the domain,
+        // require Master Administrator password to prevent arbitrary customer bypass.
+        setError("Security Shield: Please enter your Master Administrator password below to authenticate, or configure Google OAuth Client ID.");
       }
-
-      const ok = await loginWithGoogle(googleData);
-      if (ok && onSuccess) onSuccess();
     } catch (err: any) {
       setError(err?.message || "Google Administrator verification failed.");
     } finally {

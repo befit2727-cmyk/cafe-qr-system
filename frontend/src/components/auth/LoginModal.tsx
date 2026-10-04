@@ -116,6 +116,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     setLoading(true);
 
     try {
+      const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
       let googleData: {
         idToken?: string;
         email?: string;
@@ -123,22 +124,24 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
         role?: "superadmin" | "owner" | "staff" | "customer";
         avatar?: string;
       } = {
-        role: "superadmin",
-        email: "mayankkaushik361865@gmail.com",
-        name: "Mayank Kaushik (Master Admin)"
+        role: "customer",
+        email: "customer@cafeguest.com",
+        name: "Guest Customer"
       };
 
       if (isGoogleAuthAvailable()) {
         try {
           const userInfo = await promptGoogleLogin();
+          const isUserAdmin = adminEmails.includes(userInfo.email.toLowerCase().trim());
           googleData = {
             idToken: userInfo.idToken,
             email: userInfo.email,
             name: userInfo.name,
+            role: isUserAdmin ? "superadmin" : "customer",
             avatar: userInfo.avatar
           };
         } catch (e: any) {
-          console.warn("Google popup dismissed, using session:", e.message);
+          console.warn("Google popup dismissed, continuing as customer:", e.message);
         }
       }
 
