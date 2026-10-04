@@ -4,10 +4,10 @@ export interface AuthUser {
   id: string;
   name: string;
   email: string;
-  role: "superadmin" | "owner" | "staff";
-  cafeId?: string;
-  cafeName?: string;
-  provider?: "email" | "google";
+  role: UserRole;
+  cafeId?: string | null;
+  cafeName?: string | null;
+  provider?: string;
   avatar?: string;
 }
 
