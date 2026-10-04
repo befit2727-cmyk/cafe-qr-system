@@ -116,16 +116,13 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
     setLoading(true);
 
     try {
-      let googleData: { email: string; name: string; avatar?: string } | undefined;
-      if (isGoogleAuthAvailable()) {
-        const userInfo = await promptGoogleLogin();
-        googleData = {
-          email: userInfo.email,
-          name: userInfo.name,
-          avatar: userInfo.avatar
-        };
-      }
-      const ok = await loginWithGoogle(googleData);
+      const userInfo = await promptGoogleLogin();
+      const ok = await loginWithGoogle({
+        idToken: userInfo.idToken,
+        email: userInfo.email,
+        name: userInfo.name,
+        avatar: userInfo.avatar
+      });
       if (ok) {
         onClose();
       } else {

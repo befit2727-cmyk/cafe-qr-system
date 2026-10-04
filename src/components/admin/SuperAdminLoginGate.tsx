@@ -92,22 +92,13 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
     setError(null);
     setLoading(true);
     try {
-      let email = "admin@cafesaas.com";
-      let name = "Platform Super Admin (Google Verified)";
-      let avatar: string | undefined;
-
-      if (isGoogleAuthAvailable()) {
-        const userInfo = await promptGoogleLogin();
-        email = userInfo.email;
-        name = `${userInfo.name} (Super Admin)`;
-        avatar = userInfo.avatar;
-      }
-
+      const userInfo = await promptGoogleLogin();
       const ok = await loginWithGoogle({ 
         role: "superadmin", 
-        email, 
-        name,
-        avatar
+        idToken: userInfo.idToken,
+        email: userInfo.email, 
+        name: userInfo.name,
+        avatar: userInfo.avatar
       });
       if (ok && onSuccess) onSuccess();
     } catch (err: any) {

@@ -60,7 +60,7 @@ interface CafeContextType {
   currentUser: AuthUser | null;
   login: (email: string, password?: string) => Promise<boolean>;
   loginWithPin: (pin: string, targetRole?: "owner" | "staff") => Promise<boolean>;
-  loginWithGoogle: (options?: { role?: "owner" | "superadmin"; email?: string; name?: string; avatar?: string }) => Promise<boolean>;
+  loginWithGoogle: (options?: { idToken?: string; role?: "owner" | "superadmin"; email?: string; name?: string; avatar?: string }) => Promise<boolean>;
   logout: () => void;
   showLoginModal: boolean;
   setShowLoginModal: (show: boolean) => void;

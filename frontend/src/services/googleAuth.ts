@@ -69,7 +69,16 @@ export function isGoogleAuthAvailable(): boolean {
 export function promptGoogleLogin(): Promise<GoogleUserInfo> {
   return new Promise((resolve, reject) => {
     if (!isGoogleAuthAvailable()) {
-      // Fallback if not configured: provide default verified Google profile
+      if (import.meta.env.PROD) {
+        reject(
+          new Error(
+            "Google Sign-In is not configured yet. Please set VITE_GOOGLE_CLIENT_ID in your deployment environment variables."
+          )
+        );
+        return;
+      }
+
+      // Safe local development fallback only
       resolve({
         email: "customer@gmail.com",
         name: "Google Customer (Verified)",
@@ -81,7 +90,7 @@ export function promptGoogleLogin(): Promise<GoogleUserInfo> {
     }
 
     if (!window.google?.accounts?.id) {
-      reject(new Error("Google Identity SDK not loaded yet. Please try again."));
+      reject(new Error("Google Identity Services SDK is not loaded. Please check your internet connection."));
       return;
     }
 
@@ -113,4 +122,45 @@ export function promptGoogleLogin(): Promise<GoogleUserInfo> {
       reject(err);
     }
   });
+}
+
+/**
+ * Renders the official Google Sign-In button into a container element.
+ */
+export function renderGoogleButton(
+  container: HTMLElement,
+  onSuccess: (user: GoogleUserInfo) => void,
+  onError?: (err: any) => void
+): void {
+  if (!window.google?.accounts?.id || !isGoogleAuthAvailable()) {
+    return;
+  }
+
+  try {
+    window.google.accounts.id.initialize({
+      client_id: GOOGLE_CLIENT_ID,
+      callback: (response: any) => {
+        if (!response?.credential) {
+          if (onError) onError(new Error("No credential received"));
+          return;
+        }
+        const user = decodeGoogleJwt(response.credential);
+        if (user) {
+          onSuccess({ ...user, idToken: response.credential });
+        } else if (onError) {
+          onError(new Error("Could not decode Google token"));
+        }
+      }
+    });
+
+    window.google.accounts.id.renderButton(container, {
+      theme: "outline",
+      size: "large",
+      text: "continue_with",
+      shape: "pill",
+      width: 280
+    });
+  } catch (e) {
+    if (onError) onError(e);
+  }
 }

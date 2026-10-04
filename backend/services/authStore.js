@@ -273,6 +273,54 @@ class AuthStore {
     return newUser;
   }
 
+  authenticateWithGoogle({ email, name, avatar }) {
+    const cleanEmail = (email || '').toLowerCase().trim();
+    if (!cleanEmail) return null;
+
+    let user = this.accounts.find(a => a.email.toLowerCase() === cleanEmail);
+
+    if (user) {
+      if (avatar && !user.avatar) {
+        user.avatar = avatar;
+        this.saveAccounts(this.accounts);
+      }
+    } else {
+      user = {
+        id: `usr-google-${Date.now()}`,
+        name: name || cleanEmail.split('@')[0],
+        email: cleanEmail,
+        role: 'customer',
+        cafeId: null,
+        cafeName: null,
+        avatar: avatar || null,
+        provider: 'google',
+        createdAt: new Date().toISOString()
+      };
+      this.accounts.push(user);
+      this.saveAccounts(this.accounts);
+    }
+
+    const tokenPayload = {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      cafeId: user.cafeId,
+      cafeName: user.cafeName
+    };
+
+    const token = signToken(tokenPayload);
+
+    return {
+      token,
+      user: {
+        ...tokenPayload,
+        avatar: user.avatar || avatar,
+        provider: 'google'
+      }
+    };
+  }
+
   getAllAccounts() {
     return this.accounts.map(({ password, ...rest }) => rest);
   }

@@ -200,6 +200,13 @@ app.post("/api/auth/login", (req, res) => {
 
 // Google OAuth 2.0 Server-Side Token Verification Endpoint
 app.post("/api/auth/google", async (req, res) => {
+  const ip = req.headers["x-forwarded-for"]?.split(",")[0].trim() || req.socket.remoteAddress || "127.0.0.1";
+  const rate = checkLoginRateLimit(ip);
+  if (!rate.allowed) {
+    res.setHeader("Retry-After", rate.retryAfter);
+    return res.status(429).json({ error: `Too many login attempts. Try again in ${rate.retryAfter}s.`, retryAfter: rate.retryAfter, lockedOut: true });
+  }
+
   const { idToken } = req.body || {};
   if (!idToken) return res.status(400).json({ error: "idToken is required" });
 
@@ -208,29 +215,67 @@ app.post("/api/auth/google", async (req, res) => {
   let googlePicture = null;
 
   if (idToken === "demo_google_id_token") {
+    if (process.env.NODE_ENV === "production") {
+      recordLoginAttempt(ip, false);
+      return res.status(401).json({ error: "Demo tokens are not permitted in production." });
+    }
     googleEmail = "customer@gmail.com";
     googleName = "Google Customer (Verified)";
   } else {
     try {
       const gRes = await fetch(`https://oauth2.googleapis.com/tokeninfo?id_token=${encodeURIComponent(idToken)}`);
       if (!gRes.ok) {
+        recordLoginAttempt(ip, false);
         return res.status(401).json({ error: "Invalid Google token" });
       }
       const payload = await gRes.json();
+
+      // Check audience if client ID is configured
+      const configuredClientId = process.env.GOOGLE_CLIENT_ID || process.env.VITE_GOOGLE_CLIENT_ID;
+      if (configuredClientId && payload.aud && payload.aud !== configuredClientId) {
+        recordLoginAttempt(ip, false);
+        return res.status(401).json({ error: "Google token audience mismatch" });
+      }
+
       googleEmail = payload.email;
       googleName = payload.name || payload.email?.split("@")[0];
       googlePicture = payload.picture;
     } catch (err) {
+      recordLoginAttempt(ip, false);
       return res.status(401).json({ error: "Google token verification failed" });
     }
   }
 
   if (!googleEmail) {
+    recordLoginAttempt(ip, false);
     return res.status(401).json({ error: "Invalid Google token payload" });
   }
 
   const cleanEmail = googleEmail.toLowerCase().trim();
-  const existingAccount = authStore.accounts.find((a) => a.email.toLowerCase() === cleanEmail);
+
+  // Admin Google Email Whitelist
+  const adminEmails = (process.env.ADMIN_GOOGLE_EMAILS || "mayankkaushik361865@gmail.com,admin@cafesaas.com")
+    .toLowerCase()
+    .split(",")
+    .map(e => e.trim());
+
+  let existingAccount = authStore.accounts.find((a) => a.email.toLowerCase() === cleanEmail);
+
+  if (!existingAccount && adminEmails.includes(cleanEmail)) {
+    existingAccount = {
+      id: `usr-admin-google-${Date.now()}`,
+      name: googleName || "Master Administrator",
+      email: cleanEmail,
+      role: "superadmin",
+      cafeId: null,
+      cafeName: "All Cafes (Platform Master)",
+      avatar: googlePicture,
+      provider: "google",
+      createdAt: new Date().toISOString()
+    };
+    authStore.accounts.push(existingAccount);
+    authStore.saveAccounts(authStore.accounts);
+  }
 
   let userRole = "customer";
   let userCafeId = null;
@@ -270,7 +315,22 @@ app.post("/api/auth/google", async (req, res) => {
   if (process.env.NODE_ENV === "production") cookieFlags.push("Secure");
   res.setHeader("Set-Cookie", cookieFlags.join("; "));
 
+  recordLoginAttempt(ip, true);
   res.json({ token, user: userProfile });
+});
+
+// Session endpoint
+app.get("/api/auth/session", (req, res) => {
+  if (!req.user) {
+    return res.status(401).json({ authenticated: false, user: null });
+  }
+  res.json({ authenticated: true, user: req.user });
+});
+
+// Sign out endpoint
+app.post("/api/auth/signout", (req, res) => {
+  res.setHeader("Set-Cookie", "token=; HttpOnly; Path=/; Max-Age=0; SameSite=Strict");
+  res.json({ success: true });
 });
 
 // Security Status endpoint
