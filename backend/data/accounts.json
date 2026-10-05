@@ -1,5 +1,15 @@
 [
   {
+    "id": "usr-admin-mayank",
+    "name": "Mayank Kaushik (Platform Master Admin)",
+    "email": "mayankkaushik361865@gmail.com",
+    "password": "5fc50a1dcd3393d378adbe2e4d070c42:eed67df7968d2379a126c72b25ce634b6ec01cf6761089e5a494efc14459823793921e9e6ccf5cce7a4660fcc6eaf955625e998ec81a8d971ba64aed9f53836e",
+    "role": "superadmin",
+    "cafeId": null,
+    "cafeName": "All Cafes (Platform Master)",
+    "createdAt": "2026-09-16T16:34:37.561Z"
+  },
+  {
     "id": "usr-admin-1",
     "name": "Platform Administrator (Vendor)",
     "email": "admin@cafesaas.com",

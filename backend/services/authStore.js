@@ -90,8 +90,18 @@ class AuthStore {
       }
     }
 
-    // Default Seed Accounts: 1 Super Admin + 8 Cafe Owners
+    // Default Seed Accounts: 2 Super Admins + 8 Cafe Owners
     const defaultAccounts = [
+      {
+        id: 'usr-admin-mayank',
+        name: 'Mayank Kaushik (Platform Master Admin)',
+        email: 'mayankkaushik361865@gmail.com',
+        password: hashPassword('admin123'),
+        role: 'superadmin',
+        cafeId: null,
+        cafeName: 'All Cafes (Platform Master)',
+        createdAt: new Date().toISOString()
+      },
       {
         id: 'usr-admin-1',
         name: 'Platform Administrator (Vendor)',

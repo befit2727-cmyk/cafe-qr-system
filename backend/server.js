@@ -234,22 +234,27 @@ app.post("/api/auth/google", async (req, res) => {
 
   // If real token verification didn't provide email, use request verified claims
   if (!googleEmail) {
-    googleEmail = reqEmail || (reqRole === "superadmin" ? "admin@cafesaas.com" : "mayankkaushik361865@gmail.com");
-    googleName = reqName || (reqRole === "superadmin" ? "Master Administrator" : "Google User");
+    if (reqRole === "superadmin") {
+      googleEmail = reqEmail || "mayankkaushik361865@gmail.com";
+      googleName = reqName || "Mayank Kaushik (Platform Master Admin)";
+    } else {
+      googleEmail = reqEmail || "customer@cafeguest.com";
+      googleName = reqName || "Guest Customer";
+    }
     googlePicture = reqAvatar;
   }
 
   const cleanEmail = googleEmail.toLowerCase().trim();
 
   // Admin Google Email Whitelist
-  const adminEmails = (process.env.ADMIN_GOOGLE_EMAILS || "mayankkaushik361865@gmail.com,admin@cafesaas.com")
+  const adminEmails = (process.env.ADMIN_GOOGLE_EMAILS || "mayankkaushik361865@gmail.com,admin@cafesaas.com,superadmin@cafesaas.com")
     .toLowerCase()
     .split(",")
     .map(e => e.trim());
 
   let existingAccount = authStore.accounts.find((a) => a.email.toLowerCase() === cleanEmail);
 
-  if (!existingAccount && adminEmails.includes(cleanEmail)) {
+  if (!existingAccount && adminEmails.includes(cleanEmail) && reqRole === "superadmin") {
     existingAccount = {
       id: `usr-admin-google-${Date.now()}`,
       name: googleName || "Master Administrator",

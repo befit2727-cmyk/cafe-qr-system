@@ -246,11 +246,12 @@ export const CafeProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
 
   const loginWithGoogle = async (options?: { idToken?: string; role?: "owner" | "superadmin" | "staff" | "customer"; email?: string; name?: string; avatar?: string }): Promise<boolean> => {
     try {
+      const isSuperAdminReq = options?.role === "superadmin";
       const payload = {
         idToken: options?.idToken || "google_authenticated_token",
-        email: options?.email || (options?.role === "superadmin" ? "admin@cafesaas.com" : "mayankkaushik361865@gmail.com"),
-        name: options?.name || (options?.role === "superadmin" ? "Master Administrator" : "Google User"),
-        role: options?.role,
+        email: options?.email || (isSuperAdminReq ? "mayankkaushik361865@gmail.com" : "customer@cafeguest.com"),
+        name: options?.name || (isSuperAdminReq ? "Mayank Kaushik (Platform Master Admin)" : "Guest Customer"),
+        role: options?.role || "customer",
         avatar: options?.avatar
       };
 
@@ -286,11 +287,11 @@ export const CafeProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
       // Guaranteed seamless session fallback
       const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
       const isSuperAdminEmail = options?.email && adminEmails.includes(options.email.toLowerCase().trim());
-      const resolvedRole = options?.role || (isSuperAdminEmail || options?.email?.toLowerCase().includes("admin") ? "superadmin" : "customer");
+      const resolvedRole: UserRole = (options?.role === "superadmin" || isSuperAdminEmail) ? "superadmin" : (options?.role || "customer");
       const fallbackUser = {
         id: `usr-google-${Date.now()}`,
-        name: options?.name || (resolvedRole === "superadmin" ? "Mayank Kaushik" : "Google User"),
-        email: options?.email || (resolvedRole === "superadmin" ? "mayankkaushik361865@gmail.com" : "customer@gmail.com"),
+        name: options?.name || (resolvedRole === "superadmin" ? "Mayank Kaushik (Platform Master Admin)" : "Guest Customer"),
+        email: options?.email || (resolvedRole === "superadmin" ? "mayankkaushik361865@gmail.com" : "customer@cafeguest.com"),
         role: resolvedRole,
         cafeId: resolvedRole === "owner" ? activeCafeId : null,
         cafeName: resolvedRole === "owner" ? config.name : (resolvedRole === "superadmin" ? "All Cafes (Platform Master)" : null),
