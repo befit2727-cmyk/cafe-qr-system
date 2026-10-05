@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { promptGoogleLogin, isGoogleAuthAvailable } from "../../services/googleAuth";
+import { GoogleAccountChooserModal, GoogleSelectedAccount } from "./GoogleAccountChooserModal";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -56,6 +57,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showAccountChooser, setShowAccountChooser] = useState(false);
 
   // Sync security status on open
   useEffect(() => {
@@ -113,47 +115,54 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const handleGoogleSignIn = async () => {
     if (isActionDisabled) return;
     setError(null);
-    setLoading(true);
 
-    try {
-      const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
-      let googleData: {
-        idToken?: string;
-        email?: string;
-        name?: string;
-        role?: "superadmin" | "owner" | "staff" | "customer";
-        avatar?: string;
-      } = {
-        role: "customer",
-        email: "customer@cafeguest.com",
-        name: "Guest Customer"
-      };
-
-      if (isGoogleAuthAvailable()) {
-        try {
-          const userInfo = await promptGoogleLogin();
-          const isUserAdmin = adminEmails.includes(userInfo.email.toLowerCase().trim());
-          googleData = {
-            idToken: userInfo.idToken,
-            email: userInfo.email,
-            name: userInfo.name,
-            role: isUserAdmin ? "superadmin" : "customer",
-            avatar: userInfo.avatar
-          };
-        } catch (e: any) {
-          console.warn("Google popup dismissed, continuing as customer:", e.message);
+    // If native Google OAuth Client ID is active, attempt direct browser/phone popup
+    if (isGoogleAuthAvailable()) {
+      setLoading(true);
+      try {
+        const userInfo = await promptGoogleLogin();
+        const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
+        const isUserAdmin = adminEmails.includes(userInfo.email.toLowerCase().trim());
+        const ok = await loginWithGoogle({
+          idToken: userInfo.idToken,
+          email: userInfo.email,
+          name: userInfo.name,
+          role: isUserAdmin ? "superadmin" : "customer",
+          avatar: userInfo.avatar
+        });
+        if (ok) {
+          onClose();
+          return;
         }
+      } catch (e: any) {
+        console.warn("Native Google login dismissed, opening account chooser:", e.message);
+      } finally {
+        setLoading(false);
       }
+    }
 
-      const ok = await loginWithGoogle(googleData);
+    // Show Google Account Chooser Modal (Choose an account dialog)
+    setShowAccountChooser(true);
+  };
+
+  const handleAccountChosen = async (account: GoogleSelectedAccount) => {
+    setLoading(true);
+    try {
+      const ok = await loginWithGoogle({
+        email: account.email,
+        name: account.name,
+        role: account.role,
+        avatar: account.avatar,
+        idToken: account.idToken
+      });
       if (ok) {
+        setShowAccountChooser(false);
         onClose();
       } else {
-        refreshSecurity();
-        setError("Google authentication was unsuccessful.");
+        setError("Failed to sign in with chosen account.");
       }
     } catch (err: any) {
-      setError(err?.message || "Google authentication was cancelled.");
+      setError(err?.message || "Google sign-in failed.");
     } finally {
       setLoading(false);
     }
@@ -282,7 +291,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                 type="button"
                 onClick={handleGoogleSignIn}
                 disabled={isActionDisabled}
-                className="w-full bg-white hover:bg-[#f8f9fa] active:bg-[#e8eaed] text-[#3c4043] font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 text-xs sm:text-sm shadow-sm transition-all border border-[#dadce0] active:scale-[0.99] disabled:opacity-40"
+                className="w-full bg-white hover:bg-[#f8f9fa] active:bg-[#e8eaed] text-[#3c4043] font-medium py-3 px-4 rounded-full flex items-center justify-center gap-3 text-xs sm:text-sm shadow-sm transition-all border border-[#dadce0] active:scale-[0.99] disabled:opacity-40 cursor-pointer"
               >
                 <GoogleLogo className="w-4 h-4" />
                 <span className="font-semibold text-[#1f1f1f]">Continue with Google</span>
@@ -323,7 +332,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => setError("Please contact your system administrator or platform support to reset your credentials.")}
-                      className="text-[11px] text-[#8ab4f8] hover:underline"
+                      className="text-[11px] text-[#8ab4f8] hover:underline cursor-pointer"
                     >
                       Forgot password?
                     </button>
@@ -341,7 +350,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-2.5 text-[#9aa0a6] hover:text-white p-0.5"
+                      className="absolute right-3 top-2.5 text-[#9aa0a6] hover:text-white p-0.5 cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </button>
@@ -353,7 +362,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="submit"
                     disabled={isActionDisabled}
-                    className="w-full py-3 bg-[#8ab4f8] hover:bg-[#a8c7fa] text-[#001d35] font-semibold rounded-full text-xs sm:text-sm shadow transition-all active:scale-95 disabled:opacity-40 flex items-center justify-center gap-2"
+                    className="w-full py-3 bg-[#8ab4f8] hover:bg-[#a8c7fa] text-[#001d35] font-semibold rounded-full text-xs sm:text-sm shadow transition-all active:scale-95 disabled:opacity-40 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {loading ? "Verifying..." : "Sign in"}
                     <ArrowRight className="w-4 h-4" />
@@ -370,12 +379,31 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Help</span>
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Privacy</span>
                   <span className="hover:text-[#c4c7c5] cursor-pointer">Terms</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      setRole("superadmin");
+                    }}
+                    className="hover:text-[#8ab4f8] transition-colors cursor-pointer"
+                    title="Master Platform Administrator Console"
+                  >
+                    Admin Console
+                  </button>
                 </div>
               </div>
             </>
           )}
         </div>
       </motion.div>
+
+      {/* Google Account Chooser Modal (Choose an account dialog) */}
+      <GoogleAccountChooserModal
+        isOpen={showAccountChooser}
+        onClose={() => setShowAccountChooser(false)}
+        onSelectAccount={handleAccountChosen}
+        targetRole="customer"
+      />
     </div>
   );
 };

@@ -18,6 +18,7 @@ import {
 import { motion } from "motion/react";
 import { GoogleLogo } from "../auth/LoginModal";
 import { promptGoogleLogin, isGoogleAuthAvailable } from "../../services/googleAuth";
+import { GoogleAccountChooserModal, GoogleSelectedAccount } from "../auth/GoogleAccountChooserModal";
 
 interface SuperAdminLoginGateProps {
   onSuccess?: () => void;
@@ -38,6 +39,7 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showAccountChooser, setShowAccountChooser] = useState(false);
 
   // Sync security status on mount
   useEffect(() => {
@@ -90,39 +92,60 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
   const handleGoogleAdminLogin = async () => {
     if (isActionDisabled) return;
     setError(null);
+
+    // If native Google OAuth Client ID is active, attempt direct browser/phone popup
+    if (isGoogleAuthAvailable()) {
+      setLoading(true);
+      try {
+        const userInfo = await promptGoogleLogin();
+        const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
+        if (!adminEmails.includes(userInfo.email.toLowerCase().trim())) {
+          setError(`Access Denied: ${userInfo.email} is not authorized for Platform Administration.`);
+          setLoading(false);
+          return;
+        }
+        const ok = await loginWithGoogle({
+          role: "superadmin",
+          idToken: userInfo.idToken,
+          email: userInfo.email,
+          name: userInfo.name,
+          avatar: userInfo.avatar
+        });
+        if (ok && onSuccess) onSuccess();
+        return;
+      } catch (e: any) {
+        console.warn("Native Google login dismissed, opening account chooser:", e.message);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    // Show Google Account Chooser Modal (Choose an account dialog)
+    setShowAccountChooser(true);
+  };
+
+  const handleAccountChosen = async (account: GoogleSelectedAccount) => {
     setLoading(true);
     try {
       const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
-
-      if (isGoogleAuthAvailable()) {
-        try {
-          const userInfo = await promptGoogleLogin();
-          if (!adminEmails.includes(userInfo.email.toLowerCase().trim())) {
-            setError(`Access Denied: ${userInfo.email} is not authorized for Platform Administration.`);
-            setLoading(false);
-            return;
-          }
-          const ok = await loginWithGoogle({
-            role: "superadmin",
-            idToken: userInfo.idToken,
-            email: userInfo.email,
-            name: userInfo.name,
-            avatar: userInfo.avatar
-          });
-          if (ok && onSuccess) onSuccess();
-          return;
-        } catch (e: any) {
-          console.warn("Google popup dismissed, proceeding with verified admin account:", e.message);
-        }
+      if (!adminEmails.includes(account.email.toLowerCase().trim())) {
+        setError(`Access Denied: ${account.email} is not authorized for Platform Administration.`);
+        setLoading(false);
+        return;
       }
-
-      // 1-Click Instant Google Admin Login for Mayank Kaushik
       const ok = await loginWithGoogle({
         role: "superadmin",
-        email: "mayankkaushik361865@gmail.com",
-        name: "Mayank Kaushik (Platform Master Admin)"
+        email: account.email,
+        name: account.name,
+        avatar: account.avatar,
+        idToken: account.idToken
       });
-      if (ok && onSuccess) onSuccess();
+      if (ok) {
+        setShowAccountChooser(false);
+        if (onSuccess) onSuccess();
+      } else {
+        setError("Administrator verification failed.");
+      }
     } catch (err: any) {
       setError(err?.message || "Google Administrator verification failed.");
     } finally {
@@ -284,6 +307,14 @@ export const SuperAdminLoginGate: React.FC<SuperAdminLoginGateProps> = ({ onSucc
           </div>
         </div>
       </motion.div>
+
+      {/* Google Account Chooser Modal (Choose an account dialog) */}
+      <GoogleAccountChooserModal
+        isOpen={showAccountChooser}
+        onClose={() => setShowAccountChooser(false)}
+        onSelectAccount={handleAccountChosen}
+        targetRole="superadmin"
+      />
     </div>
   );
 };

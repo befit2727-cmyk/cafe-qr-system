@@ -21,6 +21,7 @@ import {
 } from "lucide-react";
 import { motion, AnimatePresence } from "motion/react";
 import { promptGoogleLogin, isGoogleAuthAvailable } from "../../services/googleAuth";
+import { GoogleAccountChooserModal, GoogleSelectedAccount } from "./GoogleAccountChooserModal";
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -56,6 +57,7 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
+  const [showAccountChooser, setShowAccountChooser] = useState(false);
 
   // Sync security status on open
   useEffect(() => {
@@ -113,47 +115,54 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
   const handleGoogleSignIn = async () => {
     if (isActionDisabled) return;
     setError(null);
-    setLoading(true);
 
-    try {
-      const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
-      let googleData: {
-        idToken?: string;
-        email?: string;
-        name?: string;
-        role?: "superadmin" | "owner" | "staff" | "customer";
-        avatar?: string;
-      } = {
-        role: "customer",
-        email: "customer@cafeguest.com",
-        name: "Guest Customer"
-      };
-
-      if (isGoogleAuthAvailable()) {
-        try {
-          const userInfo = await promptGoogleLogin();
-          const isUserAdmin = adminEmails.includes(userInfo.email.toLowerCase().trim());
-          googleData = {
-            idToken: userInfo.idToken,
-            email: userInfo.email,
-            name: userInfo.name,
-            role: isUserAdmin ? "superadmin" : "customer",
-            avatar: userInfo.avatar
-          };
-        } catch (e: any) {
-          console.warn("Google popup dismissed, continuing as customer:", e.message);
+    // If native Google OAuth Client ID is active, attempt direct browser/phone popup
+    if (isGoogleAuthAvailable()) {
+      setLoading(true);
+      try {
+        const userInfo = await promptGoogleLogin();
+        const adminEmails = ["mayankkaushik361865@gmail.com", "admin@cafesaas.com", "superadmin@cafesaas.com"];
+        const isUserAdmin = adminEmails.includes(userInfo.email.toLowerCase().trim());
+        const ok = await loginWithGoogle({
+          idToken: userInfo.idToken,
+          email: userInfo.email,
+          name: userInfo.name,
+          role: isUserAdmin ? "superadmin" : "customer",
+          avatar: userInfo.avatar
+        });
+        if (ok) {
+          onClose();
+          return;
         }
+      } catch (e: any) {
+        console.warn("Native Google login dismissed, opening account chooser:", e.message);
+      } finally {
+        setLoading(false);
       }
+    }
 
-      const ok = await loginWithGoogle(googleData);
+    // Show Google Account Chooser Modal (Choose an account dialog)
+    setShowAccountChooser(true);
+  };
+
+  const handleAccountChosen = async (account: GoogleSelectedAccount) => {
+    setLoading(true);
+    try {
+      const ok = await loginWithGoogle({
+        email: account.email,
+        name: account.name,
+        role: account.role,
+        avatar: account.avatar,
+        idToken: account.idToken
+      });
       if (ok) {
+        setShowAccountChooser(false);
         onClose();
       } else {
-        refreshSecurity();
-        setError("Google authentication was unsuccessful.");
+        setError("Failed to sign in with chosen account.");
       }
     } catch (err: any) {
-      setError(err?.message || "Google authentication was cancelled.");
+      setError(err?.message || "Google sign-in failed.");
     } finally {
       setLoading(false);
     }
@@ -387,6 +396,14 @@ export const LoginModal: React.FC<LoginModalProps> = ({ isOpen, onClose }) => {
           )}
         </div>
       </motion.div>
+
+      {/* Google Account Chooser Modal (Choose an account dialog) */}
+      <GoogleAccountChooserModal
+        isOpen={showAccountChooser}
+        onClose={() => setShowAccountChooser(false)}
+        onSelectAccount={handleAccountChosen}
+        targetRole="customer"
+      />
     </div>
   );
 };
